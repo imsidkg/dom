@@ -1,17 +1,6 @@
-//selecting element
+const listItems = document.querySelectorAll('.list-items')
 
-//getElementById
+for(i=0; i<=listItems.length-1;i++) {
+    listItems[i].style.fontSize = '5rem'
+}
 
-// const title = document.getElementById("main-heading");
-// console.log(title);
-
-//getElementByClassname
-
-// const listItems = document.getElementsByClassName('list-items')
-// console.log(listItems)
-// const listItems = document.getElementsByTagName('li')
-// console.log(listItems)
-
-
-const item = document.querySelectorAll('div')
-console.log(item)
