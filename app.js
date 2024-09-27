@@ -1,6 +1,8 @@
-const listItems = document.querySelectorAll('.list-items')
+const ul = document.querySelector('ul');
+const li = document.querySelector('li');
 
-for(i=0; i<=listItems.length-1;i++) {
-    listItems[i].style.fontSize = '5rem'
-}
+ul.append(li);
 
+li.innerText= 'X-Men';
+
+li.setAttribute('class' , 'list-items')
