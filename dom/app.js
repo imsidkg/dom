@@ -11,3 +11,4 @@ li.setAttribute('class' , 'this is a test pr')
 
 console.log('tesring the automatic PR review')
 console.log('testing comment')
+console.log('testing comment')
