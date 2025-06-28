@@ -9,3 +9,7 @@ li.setAttribute('class' , 'list-items')
 
 console.log('added for test');
 API_KEY
+
+
+console.log(hola)
+API_KEY_DEEPSEEK = 'invalid'
