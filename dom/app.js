@@ -8,4 +8,4 @@ li.innerText= 'X-Men';
 li.setAttribute('class' , 'list-items')
 
 console.log('added for test');
-API_KEY
+const API_KEY = 12321312
