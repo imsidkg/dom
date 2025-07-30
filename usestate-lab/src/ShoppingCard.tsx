@@ -1,16 +1,17 @@
-const { useReducer } = require("react");
+import { useReducer } from "react";
 
-const cartReducer = (state, action) => {
+
+const cartReducer = (state:any, action:any) => {
   switch (action.type) {
     case "ADD_ITEM":
       const existingItem = state.items.find(
-        (item) => item.id === action.payload.id
+        (item:any) => item.id === action.payload.id
       );
 
       if (existingItem) {
         return {
           ...state,
-          items: state.items.map((item) =>
+          items: state.items.map((item:any) =>
             item.id === action.payload.id
               ? { ...item, quantity: item.quantity + 1 }
               : item
@@ -21,22 +22,22 @@ const cartReducer = (state, action) => {
 
     case "REMOVE_ITEM":
       const itemToRemove = state.items.find(
-        (item) => item.id === action.payload
+        (item:any) => item.id === action.payload
       );
       return {
         ...state,
-        items: state.items.filter((item) => item.id !== action.payload.id),
+        items: state.items.filter((item:any) => item.id !== action.payload.id),
         total: state.total - itemToRemove.price * itemToRemove.quantity,
       };
 
     case "UPDATE_QUANTITY":
-      const oldItem = state.items.find((item) => item.id === action.payload.id);
+      const oldItem = state.items.find((item:any) => item.id === action.payload.id);
       const priceDifference =
         (action.payload.quantity - oldItem.quantity) * oldItem.price;
 
       return {
         ...state,
-        items: state.items.map((item) =>
+        items: state.items.map((item:any) =>
           item.id === action.payload.id
             ? { ...item, quantity: action.payload.quantity }
             : item
@@ -52,25 +53,32 @@ const cartReducer = (state, action) => {
   }
 };
 
-function ShoppingCard() {
+export function ShoppingCard() {
   const [cart, dispatch] = useReducer(cartReducer, { items: [], total: 0 });
 
-  const addToCart = (product) => {
+  const addToCart = (product:unknown) => {
     dispatch({ type: "ADD_ITEM", payload: product });
   };
 
   return (
-      <div>
+    <div>
       <h2>Cart Total: ${cart.total.toFixed(2)}</h2>
-      {cart.items.map(item => (
+      {cart.items.map((item:any) => (
         <div key={item.id}>
           {item.name} - Qty: {item.quantity}
-          <button onClick={() => dispatch({ 
-            type: 'UPDATE_QUANTITY', 
-            payload: { id: item.id, quantity: item.quantity + 1 } 
-          })}>+</button>
+          <button
+            onClick={() =>
+              dispatch({
+                type: "UPDATE_QUANTITY",
+                payload: { id: item.id, quantity: item.quantity + 1 },
+              })
+            }
+          >
+            +
+          </button>
         </div>
       ))}
     </div>
-  )
+  );
 }
+
