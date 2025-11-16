@@ -6,7 +6,7 @@ interface EnqueueOptions extends JobsOptions {
   backoff?: number | BackoffOptions;
 }
 
-class TaskEnqueue {
+export class TaskEnqueue {
   queue: Queue;
   dlq: Queue;
 
