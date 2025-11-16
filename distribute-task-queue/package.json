@@ -10,6 +10,8 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.5",
     "@types/node": "^24.10.1",
     "bullmq": "^5.63.2",
     "cors": "^2.8.5",
